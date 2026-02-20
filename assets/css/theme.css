@@ -1,0 +1,256 @@
+/* ============================= */
+/*      Dark Theme Variables     */
+/* ============================= */
+
+:root {
+    --bg-color: #111;              /* Main background */
+    --text-color: #eaeaea;         /* General text */
+    --heading-color: #ff7a00;      /* h1, h2, h3 */
+    --link-color: #ffd000;         /* Links */
+    --link-hover-color: #ff7a00;
+    --button-bg: #ff7a00;
+    --button-text: #ffffff;
+    --button-hover-bg: #ffd000;
+    --button-hover-text: #111;
+    --alt-button-bg: #333;
+    --alt-button-hover-bg: #555;
+    --section-bg: transparent;
+    --header-bg: #242424;
+    --footer-bg: #0d0d0d;
+    --project-bg: #1a1a1a;
+    --title-bg: #4d4d4d;
+}
+/* ============================= */
+/*     Light Theme Variables     */
+/* ============================= */
+:root.light-theme {
+    --bg-color: #ffffff;
+    --text-color: #111111;
+    --heading-color: #ff7a00;
+    --link-color: #2a95e2;
+    --link-hover-color: #ff7a00;
+    --button-bg: #ff7a00;
+    --button-text: #ffffff;
+    --button-hover-bg: #ffd000;
+    --button-hover-text: #111;
+    --alt-button-bg: #636363;
+    --alt-button-hover-bg: #bbb;
+    --section-bg: #f9f9f9;
+    --header-bg: #eeeeee;
+    --footer-bg: #424242;
+    --project-bg: #f0f0f0;
+    --title-bg: #e6e6e6;
+}
+
+
+/* ============================= */
+/* General Text & Headings       */
+/* ============================= */
+body, p, li, span, div {
+    color: var(--text-color) !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color) !important;
+}
+
+/* Make strong text follow theme */
+strong {
+    color: var(--text-color) !important;
+    font-weight: bold; /* keeps it bold */
+}
+
+/* Banner text always white */
+#banner header h2,
+#banner header p {
+    color: #ffffff !important;
+}
+
+/* Optional: adjust opacity for subtext */
+#banner header p {
+    opacity: 0.85;
+}
+
+/* ============================= */
+/* Links                         */
+/* ============================= */
+a {
+    color: var(--link-color) !important;
+    text-decoration: none !important;
+}
+
+a:hover {
+    color: var(--link-hover-color) !important;
+}
+
+/* ============================= */
+/* Buttons & Interactive Elements */
+/* ============================= */
+button, .button, input[type="submit"], input[type="button"] {
+    background-color: var(--button-bg) !important;
+    color: var(--button-text) !important;
+    border: none !important;
+    transition: 0.3s ease !important;
+}
+
+button:hover, .button:hover, input[type="submit"]:hover, input[type="button"]:hover {
+    background-color: var(--button-hover-bg) !important;
+    color: var(--button-hover-text) !important;
+    transform: translateY(-3px) !important;
+}
+
+/* Alt buttons */
+.button.alt {
+    background-color: var(--alt-button-bg) !important;
+}
+
+.button.alt:hover {
+    background-color: var(--alt-button-hover-bg) !important;
+}
+
+/* Theme toggle button fixed in top-right corner */
+#theme-toggle {
+    position: fixed;
+    top: 35px;
+    right: 20px;   /* change to left:20px; if you want top-left */
+    z-index: 9999;
+    padding: 0.5em 1em;
+    font-size: 0.9em;
+    cursor: pointer;
+}
+
+
+/* ============================= */
+/* Sections, Header, Footer      */
+/* ============================= */
+section {
+    background-color: var(--section-bg) !important;
+}
+
+#header {
+    background-color: var(--header-bg) !important;
+}
+
+#footer {
+    background-color: var(--footer-bg) !important;
+}
+
+/* Footer links */
+.footer-links a {
+    color: var(--link-color) !important;
+}
+
+.footer-links a:hover {
+    color: var(--link-hover-color) !important;
+}
+
+/* Make intro/highlight boxes consistent */
+#intro .col-4 section {
+    background: var(--section-bg) !important;  /* remove template white */
+    padding: 1.5em !important;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Make icons consistent color */
+#intro i {
+    color: var(--heading-color) !important;
+}
+
+/* Make all box footers consistent */
+#portfolio .box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  /* pushes footer to bottom */
+    height: 100%;
+}
+
+/* Footer buttons align at bottom */
+#portfolio .box footer {
+    margin-top: auto;  /* footer always at bottom of box */
+    text-align: center;
+}
+
+#portfolio .box footer ul.actions {
+    display: flex;
+    justify-content: center;
+    gap: 0.75em;
+    padding: 0;
+    margin: 0;
+}
+
+#portfolio .box footer ul.actions li {
+    list-style: none;
+    margin: 0;
+}
+
+#portfolio .box footer .button {
+    min-width: 140px;   /* keeps them equal width */
+    text-align: center;
+}
+
+/* Remove decorative pseudo-elements in intro/highlight columns */
+#intro .col-4 section::before,
+#intro .col-4 section::after {
+    content: none !important;
+}
+
+.my-background {
+    background-color: var(--project-bg) !important;
+    border-radius: 12px;
+    padding: 1.5em;
+}
+
+/* Ensure columns with my-background stay aligned */
+.project-details .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2%;  /* optional spacing between columns */
+}
+
+.project-details .col-6.my-background {
+    box-sizing: border-box; /* include padding in width */
+    padding: 1.5em;         /* optional */
+    background-color: var(--project-bg) !important;
+    border-radius: 12px;
+    flex: 1 1 48%;           /* allows responsive two-column layout */
+    min-width: 300px;         /* prevents collapsing on small screens */
+}
+
+.project-details .container {
+    padding-top: 3em;   /* ensures background starts below container top */
+}
+
+/* Base styled header — works everywhere */
+header.major {
+    text-align: center;
+    position: relative;
+}
+
+header.major::before,
+header.major::after {
+    display: none !important; /* kill template decorations globally */
+}
+
+header.major h2 {
+    display: inline-block;
+    background-color: var(--title-bg);
+    padding: 0.7em 1.8em;
+    border-radius: 999px;
+    margin: 0 0 1.5em 0;
+    line-height: 1;
+    top: -1.1em;
+}
+
+/* Fix #main headers to match theme */
+#main header.major h2 {
+    background: var(--title-bg);
+}
+
+#main {
+    background: var(--section-bg);
+}
+
+#main:before {
+    display: none;
+}
